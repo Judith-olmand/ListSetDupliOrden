@@ -1,13 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.*;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+public class ListSetDupliOrden {
+    public static void main(String[] args) {
+        List<String> nombres = new ArrayList<>();
+
+        nombres.add("Juan");
+        nombres.add("Marco");
+        nombres.add("Pedro");
+        nombres.add("Lucas");
+        nombres.add("Marco");
+        nombres.add("Pedro");
+
+        System.out.println("LISTA SIN ORDENAR Y CON NOMBRES REPETIDOS");
+        for(String nombres1 : nombres){
+            System.out.println(nombres1);
+        }
+
+        //Convierte a set para eliminar repetidos
+        Set<String> sinRepetir = new HashSet<>(nombres);
+
+        //Pasamos de nuevo a list para poder ordenar
+        List<String> listaSinRepetir = new ArrayList<>(sinRepetir);
+
+        //Ordena la colección por orden alfabético
+        Collections.sort(listaSinRepetir);
+
+        System.out.println();
+        System.out.println("LISTA ORDENADA SIN REPETIDOS");
+        for (String nombres1 : listaSinRepetir) {
+            System.out.println(nombres1);
+        }
+
+        //Ordena la colección por orden alfabético inverso
+        listaSinRepetir.sort(Collections.reverseOrder());
+
+        System.out.println();
+        System.out.println("LISTA ORDENADA EN ORDEN INVERSO");
+        for (String nombres1 : listaSinRepetir) {
+            System.out.println(nombres1);
+        }
+
+    }
 }
